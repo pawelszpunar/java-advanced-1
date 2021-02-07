@@ -11,14 +11,24 @@ public class SoundsDemo {
         while(count-- > 0){
             String noteStr = scanner.nextLine();
             //values() zwraca tablicę obiektów typu wyyliczeniowego
-            for(Note n: Note.values()){
-                //metoda name() zwraca nazwę danej stałej
-                if (n.equals(noteStr)){
-                    //valueOf(str) zwraca stałą wyliczeniową o nazwie w str
-                    Note note = Note.valueOf(noteStr);
-                    song[count] = note;
-                }
+//            for(Note n: Note.values()){
+//                //metoda name() zwraca nazwę danej stałej
+//                if (n.equals(noteStr)){
+//                    //valueOf(str) zwraca stałą wyliczeniową o nazwie w str
+//                    Note note = Note.valueOf(noteStr);
+//                    song[count] = note;
+//                }
+//            }
+            try {
+                Note note = Note.valueOf(noteStr);
+                song[count] = note;
+            } catch (IllegalArgumentException e){
+                System.out.println("Nieznany dźwięk!");
             }
+
+
+
+
          }
 
         for(Note note: song){
